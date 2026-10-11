@@ -226,19 +226,19 @@
 
 - ★★★ **轮 130：v5r **逐工具**包含度对照表（用户第 2 条指示的答案；取代轮 128 那张失效的表）** ✓✓
   **方法** ✓：先用**多种注册形态**抽出 v5r 的权威工具清单（`registerTool('…')` 单引号形态 ⇒ **56 个** ✓，与轮 84 一致 ✓；轮 128 只抽到 29 个是**我的正则缺陷** ✗）；再以**模块的取值形态与 API** 为证据逐条配对 ✓（**不以名字配对** ✗）。
-  **结论** ✓：**56 个工具中，54 个有承载原语 ✓、2 个部分承载 ○、0 个缺 ✗**（**逐族相加：10＋4＋9＋3＋15＋8＋5＝54 承载 ✓；部分＝论文 2 ✓ ⇒ 54＋2＝56 ✓**）。**轮 131 补上 Lean 归档三动词后"缺"归零 ✓；轮 132 补上 `self_report` 后部分降至 2** ✓✓ ⇒ 但仍**不等于** v5r 已被包含 ✗✓（见下"正文轴" ✓）。
+  **结论** ✓：**56 个工具中，56 个有承载原语 ✓、0 个部分承载、0 个缺 ✗**（**逐族相加：10＋4＋9＋3＋15＋8＋5＝54，加轮 135 的论文 2 ＝ 56 承载 ✓**）。**轮 131 补 Lean 归档三动词 ⇒ 缺归零 ✓；轮 132 补 `self_report` ⇒ 部分降至 2 ✓；轮 135 补多成员合著编排（`kernel/paper.js`）⇒ 部分归零** ✓✓ ⇒ 但**仍不等于 v5r 已被包含** ✗✓（见下"正文轴" ✓）。
   | 族（数量） | v5r 工具 | vmu 承载（**证据＝模块 API 形态** ✓） | 判定 |
   |---|---|---|---|
   | **院所外壳（10）** | configure／start／resume／pause／stop／status／report／set／message／members | `pack.js`＋settings 模式＋`guard.js`（**唯一的执行点**）／`index.js`（组装根）／`stateversion.js`＋`replay.js`＋`storepolicy.js`（**跨版本读被拒 ＋ 显式迁移**）／`scheduler.js`（**注入计时缝**）／`work.js`（**在飞账本：重启后"被打断的工作"可知**）／`metrics.js`（判定计数面）／`audit.js`（**只追加 ＋ 先脱敏后落盘**）／`bus.js`（**中间件与框架的唯一交汇点**）／`notify.js`（订阅／去重／静默时段／摘要）／`members.js`（**角色槽位 ＋ 容量 ＋ 唤醒信封**） | **10／10 承载** ✓ |
   | **人事（4）** | hire／fire／add_researcher／remove_researcher | `recruit.js`（**岗位→申请→评分→offer→试用→转正**）／`hr.js`（招聘／绩效／终身教职／申诉／**离任**／轮换）／`capacity.js`（**席位**）／`delegation.js`（**机器强制**的授权回收） | **4／4 承载** ✓ |
-  | **论文（2）** | paper／finalize_paper | `publication.js`（**版本链 ＋ 投稿包 ＋ 归档登记**）＋`repropack.js` | **部分** ○（**无"多成员合著流程"这一编排**） |
+  | **论文（2）** | paper／finalize_paper | `publication.js`（**版本链 ＋ 投稿包 ＋ 归档登记**）＋`repropack.js`；**轮 135 补上编排** ✓：`kernel/paper.js` 的 `start()`／`contribute()`／`finalize()`／`status()` —— **每节必须有人认领** ✓、**归属机器强制** ✓、**一节只交一次** ✓、**缺节逐节点名到人** ✓、**定稿人规则可调** ✓（未知值回落 editor ✓）、**登记委托注入接缝** ✓（缺则 `VMU_ENGINE_UNAVAILABLE` ✗ 不假装 ✓），**30 条断言全绿** ✓ | **2／2 承载** ✓ |
   | **成员记录／沟通（9）** | say／wait／record_progress／record_proposition／record_method／record_subproblem／read_library／feedback／self_report | `bus.js`／`notify.js`（**不轮询的等待**）／`library.js`（**轨道／卡片／内容同一性／head 表**）／`memory.js`（**教训／反模式／事实／偏好**）／`metrics.js`；**轮 132 补上 `self_report`** ✓：`members.js` 的 `selfReport()`／`selfReports()`／`selfReportHistory()`（**只追加** ⇒ 每条更新都留 ✓；`overall` 必填 ✓；**未知字段具名拒、不静默丢弃** ✓；`by` 记为**审计事实**而**不发明策略** ✓；成员结束后**历史仍保留** ✓），**15 条新断言全绿** ✓ | **9／9 承载** ✓ |
   | **验证（3）** | propose_verify／verdict／end_verify | `meeting.js`（**含轮 87 的 `endDebate()`** ✓）／`ballot.js`＋`ballotbox.js`（**27 键真消费**） | **3／3 承载** ✓ |
   | **会议治理（15）** | meeting／chair_proxy／procedural_objection／grant／revoke／poll_open／poll_vote／poll_close／reconsider／secretary／motion／second／minutes／result_record／resolutions | `meeting.js`（50 断言）／`meetings.js`（策略层）／`delegation.js`／`arbitration.js`（**回避／听证／裁决／上诉**）／`grant.js`（**自 v5r #47 移植 ＋ 38 断言** ✓）／`ballot.js`／`ballotbox.js`／`minutes.js`（**纪要／决议／行动项**）／`governance.js`（**议程 ＋ 动议** ✓） | **15／15 承载** ✓ |
   | **任务（8）** | task_create／task_list／task_get／task_update／overview／assign／prioritize／nudge | `tasks.js`（**账本 ＋ 阶段机**）／`workflow.js`（**CAS 动作／依赖／闸点**）／`board.js`（**看板／WIP／泳道／老化**）／`scheduler.js`／`metrics.js` | **8／8 承载** ✓ |
   | **Lean（5）** | lean_run／lean_job／lean_archive／lean_read／lean_lib | `lean.js`：**8 键真读；队列并发 `leanJobsMaxParallel`；"退出 0 **且**产物哈希未变"才判 passed；具名拒 `VMU_LEAN_*`；丢弃计数** ✓（⇒ lean_run／lean_job **承载** ✓）；**轮 131 补上归档三动词** ✓：`archive()` 登记**具名引用＋内容哈希**（**不复制内容** ✓）、`read()` **回源并校验哈希**、**漂移即 `VMU_LEAN_ARCHIVE_DRIFT` 且不返回旧内容** ✓、`lib()` 列条目 ✓，**13 条断言全绿** ✓（含"**先证明未变时能读**"再断言漂移被拒 ✓） | **5／5 承载** ✓ |
   **★ 另一条轴：提示词正文** ✓✓：v5r 的 **27 段提示** 是**文本**，而 vmu 本体**按设计不含文本**（`packs/v5r-core.js` **121 行是策略** ✓）⇒ ⇒ **"完全包含、内容完全一致"在【正文】这一轴上为否** ✗ —— 它属于 **preset/pack** 的职责（当前由 `vibe-math-v5` **9,065 行**承载 ✓，覆盖 **17/18 段提示** ✓）。
-  **⇒ 因此对"是否完全实现 v5r"的回答** ✓✓：**工具轴上已无"缺"（54／56 有原语 ＋ 2 处部分）** ✓、**正文轴上不包含（提示词是文本，vmu 只承载策略）** ✗ ⇒ **"若没有则继续直至完全包含"的施工单＝这 2 项部分（论文编排 2）** ✓（**逐项写明复活条件** ✓）。
+  **⇒ 因此对"是否完全实现 v5r"的回答** ✓✓：★ **工具轴上【已无缺、也无部分】（56／56 有承载原语）** ✓✓、**正文轴上不包含（提示词是文本，vmu 只承载策略）** ✗ ⇒ **"若没有则继续直至完全包含"的剩余施工单＝【正文轴】这一项** ✓（**它需要你先裁决：v5r 的提示词正文由【框架】还是【pack/preset】承载** ✓ —— **我的建议仍是留在 pack/preset 层** ✓，框架只承载策略与机制 ✓）。
 
 - ★★ **轮 130（续）：PR #18 落地后的验收器缺陷与一次负载抖动，逐条记清** ✓✓
   **① 我上一轮的修复没修透** ✗：`accept-c-orphan` 的对照组取自 `HEAD` ✓，我改成"若与受测同 blob 则退**一步**" ✗ —— 而补丁提交后**任何更晚的提交**（如我这轮的文档提交 ✓）都会让 `HEAD~1` **仍含补丁** ⇒ 对照组又等于受测者 ⇒ **C1/C3 再次失败** ✗。**实测**：默认运行自动选到 `HEAD~3` 才拿到不同内容 ✓；**修法**：**一直回退到 blob 与受测【确实不同】的那个版本**（窗口 50 个提交 ✓），**并打印它用了哪个 ref** ✓；**窗口内找不到就【拒绝比较】并退出非零** ✓（**不静默通过** ✗）。
@@ -260,6 +260,24 @@
   **② 但实测暴露了我方一处真实缺陷** ✗：mine 的 `NO-DEFAULT` 里有 `course.submitMode`／`visibility`／`ontologyVersion` —— **它们的默认值明明写在源码里**（`s('vmu.course.submitMode', 'artifact')` ✓），**只是传给了模块【自己定义的短助手】** ✗。原实现的白名单写作 `(?:sget|b|n)` ✗ —— **又是一个"清单即字面量"** ✓（第 9 次同族 ✓）。**修法（按最优实践，不是补一个字母 ✓）**：把规则**改写成性质** —— **任何【模块自己定义的、参数 ≥ 2 的】函数**，只要**第一参数是键字面量、第二参数是字面量**，该字面量就是"缺省时的答案" ✓（**可从源码证明，非猜测** ✓；已知访问器**优先** ✓；**单参助手永不匹配** ✓）。**实测结果**：**`recovered 287 → 290`**、**`missing 11 → 8`** ✓✓、`INVARIANTS ok … 8 with an honest null default` ✓。
   **③ ★ 第 8 次"我的仪器错了"，而这次【在断言之前】被拦住** ✓✓：我先前用 PowerShell `>` 把 theirs 导出到 D 盘 ⇒ 它写成 **UTF-16**（**12006 字节的 blob 变成 24236 字节** ✓）⇒ 运行报 `SyntaxError` ✗ ⇒ **若我据此宣布"theirs 坏了"，就是又一次拿坏仪器当证据** ✗。**拦住它的办法是哈希**：`git hash-object 提取物` ≠ `git rev-parse <commit>:<path>` ⇒ **提取不忠实** ✓✓ ⇒ 改用 `git worktree` ＋ 文件复制 ✓。**并入纪律：跨提交/跨版本取文件，必须先以哈希证明提取忠实** ✓。
   **④ 明写未做 ✗**：**仍有 8 个 null**（`auction.dirtyWorkQuota`／`fairnessPolicy`／`rotationWindow`／`course.latePenaltyRatio`／`peerWeight`／`external.mergePolicy`／`grant.commands`／`instruments.capabilityTags` ✓）—— 其中 `auction` 三个的默认值是 **`DEFAULTS.<field>`（标识符）** ✗ ⇒ 需**从模块自身的 `DEFAULTS` 对象字面量**解析 ✓（**复活条件**：按"可证明"原则加一条 `IDENT.field` 解析规则并重跑链与 T1 ✓）；其余多**确实没有默认值**（`Number(readKey(...))` ✓／`listOr(sget(...))` ✓）⇒ **诚实 null** ✓。
+
+  **④ 明写未做 ✗（已被轮 134 收窄）**：当时**仍有 8 个 null** ⇒ **轮 134 降到 3** ✓（见下 ✓）。
+
+- ★★★ **轮 134：把"默认值恢复"从【形态清单】改写成【可证明的性质】，恢复数 287 → 295** ✓✓
+  **三处同族缺陷，都是"清单/单形态代替性质"** ✗✓：
+  **① 助手白名单**（轮 133 已修 ✓）：`(?:sget|b|n)` ✗ ⇒ 改写成**"模块自己定义的、参数 ≥ 2 的函数，第一参数是键字面量、第二参数是字面量"** ✓。
+  **② 标识符路径**：`auction` 的默认值是 **`DEFAULTS.fairnessPolicy`（标识符）** ✗ ⇒ **不是猜**：`DEFAULTS` 是模块**自己声明的对象字面量** ✓ ⇒ 新增一条规则**从该表里读出字段值** ✓（只接受**字面量值** ✓；嵌套路径或计算字段仍为 null ✓）。
+  **③ 访问器形态**（本轮最大的一处 ✓）：判定用的占位符 `S` **只拼了 `settings['k']` 一种形态** ✗，而模块也用 `readKey('k')`／`sget('k')`／`raw(settings,'k')` ✗ ⇒ **所有"缺省答案"规则**（`||`／三元／`!== false`／`=== true`／`listOr(...)`）**都看不见它们** ✗✓ ⇒ 改成**覆盖真实使用的形态** ✓ —— 理由：**那些规则讲的是"缺省时的答案"，与访问器怎么拼写无关** ✓。
+  **实测（逐步）** ✓：`287 → 290`（①）→ `292`（②）→ **`295`（③）**；**`missing 11 → 3`** ✓✓；`INVARIANTS ok … 3 with an honest null default` ✓。**抽查确认非臆造** ✓：`fairnessPolicy='equal'` ✓／`dirtyWorkQuota=0` ✓／`submitMode='artifact'` ✓／`visibility='cohort'` ✓／`peerWeight=0` ✓（**全部与源码字面一致** ✓）。
+  **明写未做 ✗（仍 3 个诚实 null）** ✓：`course.latePenaltyRatio`（**有效默认 0 藏在 `Number.isFinite(ratio) && ratio>=0 && ratio<=1 ? ratio : 0` 里 ✗** ⇒ 条件针对的是**局部变量**而非访问器 ⇒ **要恢复就得上数据流分析**，风险大于收益 ✓）／`external.mergePolicy`／`instruments.capabilityTags`（同族：**缺省答案由局部变量上的表达式给出** ✗）。**复活条件** ✓：**若将来愿意引入"局部变量的缺省答案追踪"**（且能证明不引入误判 ✓），再回收这 3 个 ✓；**在此之前它们以 `def: null` ＋ 明说是"诚实 null"** ✓✓。
+
+- ★★★ **轮 136：正文轴落地（v5r 包现在承载【提示词正文】，且"内容完全一致"变成可机械核验的断言）** ✓✓
+  **背景** ✓：轮 135 让工具轴达到 **56／56**，**唯一剩下的是正文轴** —— v5r 的提示词是**文本**，而 vmu 本体**按设计只承载策略** ✓ ⇒ **正文归 pack/preset 层** ✓（我的建议，已按此执行 ✓）。
+  **做法（不制造第二份会漂移的副本 ✓）**：新增生成器 `scripts/generate-pack-prompts.mjs` ✓，从 **`prompt-corpus-v5/prompt-corpus-v5.json`** 生成 **`packs/v5r-prompts.js`** ✓ —— **逐字嵌入**（实测 **67 条／76,503 字符／31 种 kind** ✓），并在**生成物内记下语料的 sha256**（`d889776b36ff…` ✓）⇒ **一旦与语料不一致 ⇒ 链的 `--check` 直接红** ✓✓，而不是"多出一份没人看的副本" ✗。
+  **包字段与【消费者】** ✓✓：`v5r-core` 新增 `prompts: { module, source, count, chars, sourceSha256 }` ✓ —— ★ 而 docs/10 明写"**未知字段会被静默忽略**" ✗ ⇒ **只声明就是本项目一路在抓的"声明无效"** ✗✓ ⇒ 因此**同时给了它真消费者**：`kernel/pack.js` 的 `plan()` **校验**该字段并**输出 `kind:'prompts'` 动作** ✓（实测：`{"kind":"prompts","module":"./v5r-prompts.js","count":67,…}` ✓；非法字段 ⇒ `problems` **逐条点名** ✓）。
+  **证据（"完全一致"不是声明，是断言 ✓）** ✓✓：新增 **`tests/vmu-pack-prompts.test.mjs`（22 条全绿 ✓）** —— 其中 ★ **逐条逐字比较**（`PROMPTS[i].text === corpus.prompts[i].prompt` ✓）、**记录 sha256 ＝ 语料实际 sha256** ✓、**条数／字符数／kind 数三处一致** ✓、**包的声明 ＝ 生成物**（不是手打数字 ✓）、**计划里能看到 `prompts` 动作** ✓、**生成物带 `GENERATED FILE` 标记且被冻结** ✓。
+  **并入链与随包面** ✓：`regen-all` **8 → 9 步** ✓；`package.json#files` 与 `installer.js` 的 vmu 预设清单**都加了 `packs/v5r-prompts.js`** ✓（**正文随包发布** ✓）。
+  **诚实的边界** ✗：本包**不是**"与 v5r 行为等价的证明" ✗（docs/10 §5.3 原话 ✓）—— 它证明的是**正文逐字相同** ✓；**行为等价仍需 A/B 场景台**（P3 ✓），那**仍未做** ✗。
 
 ### 0.4 结论
 
